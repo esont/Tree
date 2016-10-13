@@ -1,0 +1,24 @@
+Position Find(ElementType x, BinTree BST)//  递归 
+{
+	if(!BST) return NULL;//查询失败 
+	if(x>BST->Data)
+		return Find(x,BST->Right);// 在右子树继续查找 
+	else if(x<BST->Data)
+		return Find(x,BST->Left); // 在左子树继续查找 
+	else
+		return BST; // 查找成功 
+}
+
+Position IterFind(ElementType X,BinTree BST)
+{
+	while(BST)
+	{
+		if(X>BST->Data)
+			BST=BST->Right;
+		else if(X<BST->Data)
+			BST=BST->left;
+		else
+			return BST;
+	}
+	return NULL;
+ } 
